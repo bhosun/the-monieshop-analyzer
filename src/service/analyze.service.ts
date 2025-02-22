@@ -3,28 +3,29 @@ import { getHighestDailySalesValue } from "../helpers/dailySalesValue";
 import { getMostSoldProductByVolume } from "../helpers/mostSoldProduct";
 import { getStaffWithMostSalesPerMonth } from "../helpers/staffSales";
 import { getHighestHourByAverageTransactionVolume } from "../helpers/getMostSalesPerHour";
+import { DailySalesValue, DailySalesVolume, hourlySales, MostSoldProduct, StaffWithMostSales } from "../interfaces";
 
 export function getHighestSalesVolume() {
-  const volume = getHighestDailySalesVolume();
+  const volume: DailySalesVolume = getHighestDailySalesVolume();
   return volume;
 }
 
 export function getHighestDailySales() {
-  const sale = getHighestDailySalesValue();
+  const sale: DailySalesValue = getHighestDailySalesValue();
   return sale;
 }
 
 export function getMostSoldProduct() {
-  const productData = getMostSoldProductByVolume();
+  const productData: MostSoldProduct  = getMostSoldProductByVolume();
   return productData;
 }
 
 export function getStaffsWithMostSales() {
-  const salesData = getStaffWithMostSalesPerMonth();
+  const salesData: StaffWithMostSales = getStaffWithMostSalesPerMonth();
   return salesData;
 }
 
 export function getHourWithMostTransactionsVolume() {
-    const transactionData = getHighestHourByAverageTransactionVolume();
+    const transactionData: hourlySales = getHighestHourByAverageTransactionVolume();
     return transactionData;
 }

@@ -1,12 +1,13 @@
 import * as fs from "fs";
 import * as path from "path";
+import { DailySalesValue } from "../interfaces";
 
-export function getHighestDailySalesValue() {
+export function getHighestDailySalesValue(): DailySalesValue {
   const transactionsPath = path.join("test-case-1");
   const dailyTransactions = fs.readdirSync(transactionsPath);
 
-  let highestSaleAmount = 0;
-  let dayOfTransaction = "";
+  let highestSaleAmount: number = 0;
+  let dayOfTransaction: string = "";
 
   dailyTransactions.forEach((file) => {
     const data = fs.readFileSync(path.join(transactionsPath, file), "utf8");
@@ -25,7 +26,7 @@ export function getHighestDailySalesValue() {
     });
   });
 
-  const data = {
+  const data: DailySalesValue = {
     highestSaleAmount,
     dayOfTransaction
   };

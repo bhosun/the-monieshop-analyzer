@@ -1,7 +1,8 @@
 import * as fs from "fs";
 import * as path from "path";
+import { MostSoldProduct } from "../interfaces";
 
-export function getMostSoldProductByVolume() {
+export function getMostSoldProductByVolume(): MostSoldProduct{
   const transactionsPath = path.join("test-case-1");
   const dailyTransactions = fs.readdirSync(transactionsPath);
 
@@ -40,7 +41,7 @@ export function getMostSoldProductByVolume() {
     }
   }
 
-  const data = {
+  const data: MostSoldProduct = {
     mostSoldProductId,
     highestVolume
   };

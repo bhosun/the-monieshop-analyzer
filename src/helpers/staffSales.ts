@@ -1,7 +1,8 @@
 import * as fs from "fs";
 import * as path from "path";
+import { StaffWithMostSales } from "../interfaces";
 
-export function getStaffWithMostSalesPerMonth() {
+export function getStaffWithMostSalesPerMonth(): StaffWithMostSales {
   const transactionsPath = path.join("test-case-1");
   const dailyTransactions = fs.readdirSync(transactionsPath);
 
@@ -37,12 +38,7 @@ export function getStaffWithMostSalesPerMonth() {
     });
   });
 
-  const staffData: {
-    [month: string]: {
-      staffId: string;
-      totalSales: number;
-    };
-  } = {};
+  const staffData: StaffWithMostSales = {};
 
   for (const month in staffSales) {
     let highestSales = 0;

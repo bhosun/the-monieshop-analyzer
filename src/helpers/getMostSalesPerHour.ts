@@ -1,8 +1,9 @@
 import { time } from "console";
 import * as fs from "fs";
 import * as path from "path";
+import { hourlySales } from "../interfaces";
 
-export function getHighestHourByAverageTransactionVolume() {
+export function getHighestHourByAverageTransactionVolume(): hourlySales{
   const transactionsPath = path.join("test-case-1");
   const dailyTransactions = fs.readdirSync(transactionsPath);
 
@@ -34,8 +35,8 @@ export function getHighestHourByAverageTransactionVolume() {
     });
   });
 
-  let highestAverageVolume = 0;
-  let highestTimeSlot = "";
+  let highestAverageVolume: number = 0;
+  let highestTimeSlot: string = "";
 
   for (const timeSlot in hourlyVolumes) {
     const averageVolume =

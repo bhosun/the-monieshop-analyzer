@@ -1,17 +1,18 @@
 import * as fs from "fs";
 import * as path from "path";
+import { DailySalesVolume } from "../interfaces";
 
-export function getHighestDailySalesVolume() {
+export function getHighestDailySalesVolume(): DailySalesVolume{
   const transactionsPath = path.join("test-case-1");
   const dailyTransactions = fs.readdirSync(transactionsPath);
 
-  let greatestVolume: Number = 0;
+  let greatestVolume: number = 0;
   let dayOfTransaction: string = "";
 
   dailyTransactions.forEach((file) => {
     const data = fs.readFileSync(path.join(transactionsPath, file), "utf8");
     const transactions = data.split("\n");
-    const dailyTransactionVolume: Number = transactions.length;
+    const dailyTransactionVolume: number = transactions.length;
 
     if (dailyTransactionVolume > greatestVolume) {
       greatestVolume = dailyTransactionVolume;
@@ -19,7 +20,7 @@ export function getHighestDailySalesVolume() {
     }
   });
 
-  const data = {
+  const data: DailySalesVolume = {
     greatestVolume,
     dayOfTransaction
   };
