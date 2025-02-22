@@ -8,7 +8,7 @@ This project is built with Node.js, express and Typescript it uses the inbuilt f
 1. Clone the repository:
     ```bash
     git clone https://github.com/bhosun/the-monieshop-analyzer.git
-    cd monieshop
+    cd the-monieshop-analyzer
     ```
 
 2. Install the dependencies:
